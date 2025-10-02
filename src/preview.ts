@@ -14,7 +14,7 @@ import { THEME_NAME_KEY } from "./constants";
 const preview: ProjectAnnotations<Renderer> = {
   decorators: [],
   initialGlobals: {
-    [THEME_NAME_KEY]: false,
+    [THEME_NAME_KEY]: null,
   },
 };
 
