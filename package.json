@@ -1,0 +1,118 @@
+{
+  "name": "multiple-themes-stitches",
+  "version": "2.0.3",
+  "description": "An addon that allows to see a same Story using different Stitches theme variables.",
+  "keywords": [
+    "storybook-addons",
+    "stitches"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SHO-ai-org/addon-stitches.git"
+  },
+  "author": "SHO.ai <hello@sho.ai>",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "node": "./dist/index.js",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./manager": {
+      "require": "./dist/manager.js",
+      "import": "./dist/manager.mjs",
+      "types": "./dist/manager.d.ts"
+    },
+    "./preview": {
+      "require": "./dist/preview.js",
+      "import": "./dist/preview.mjs",
+      "types": "./dist/preview.d.ts"
+    },
+    "./register": {
+      "require": "./dist/manager.js",
+      "import": "./dist/manager.mjs",
+      "types": "./dist/manager.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "*.js",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "prebuild": "yarn clean",
+    "build": "tsup",
+    "build:watch": "yarn build --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"yarn build:watch\" \"yarn storybook --quiet\"",
+    "release": "yarn build && auto shipit",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@stitches/react": "^1.2.8",
+    "@storybook/addon-docs": "^9.1.10",
+    "@storybook/addon-links": "^9.1.10",
+    "@storybook/icons": "^1.2.9",
+    "@storybook/react-vite": "^9.1.10",
+    "@storybook/testing-library": "^0.2.2",
+    "@types/node": "^20.11.28",
+    "@types/react": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "auto": "^11.1.1",
+    "boxen": "^7.1.1",
+    "concurrently": "^8.2.2",
+    "dedent": "^1.5.1",
+    "prettier": "^3.2.5",
+    "prompts": "^2.4.2",
+    "prop-types": "^15.8.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rimraf": "^5.0.5",
+    "storybook": "^9.1.10",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2",
+    "vite": "^6.3.5",
+    "zx": "^7.2.3"
+  },
+  "peerDependencies": {
+    "@stitches/react": "^1.2.8",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "storybook": "^9.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "storybook": {
+    "displayName": "Stitches Theme Selector",
+    "supportedFrameworks": [
+      "react"
+    ],
+    "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+  },
+  "volta": {
+    "node": "20.11.1"
+  },
+  "auto": {
+    "plugins": [
+      "npm"
+    ]
+  },
+  "packageManager": "yarn@1.22.21"
+}
